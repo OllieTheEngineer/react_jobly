@@ -1,11 +1,11 @@
 import React, { useState } from 'react';
-import { useHistory } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 import Alert from '../Alert';
 
 //  Sign up form for users to create an account so that they can log in and utilize the app
 
 const SignupForm = () => {
-  const history = useHistory();
+  const navigate = useNavigate();
 
   const [ formData, setFormData ] = useState({
     firstName: "",
@@ -23,7 +23,7 @@ async function handleSignUp(e) {
     e.preventDefault();
     let res = await SignupForm(formData);
     if(res.sucess) {
-        history.push('/companies');
+        navigate.push('/companies');
     } else {
         setFormErrors(res.errors);
     }

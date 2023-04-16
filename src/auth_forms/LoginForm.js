@@ -1,12 +1,12 @@
 import React, {useState} from 'react';
-import { useHistory } from "react-router-dom";
 import Alert from '../Alert';
+import { useNavigate } from 'react-router-dom';
 
 // user log in form
 // allows user to log in and shows companies and jobs
 
 function LoginForm({login}) {
-const history = useHistory();
+const navigate = useNavigate()
 
 const InitialState = {
     username: "",
@@ -21,7 +21,7 @@ async function handleLoginSubmit(e) {
     e.preventDefault();
     let res = await login(formData);
     if(res.success) {
-        history.push('/companies');
+        navigate.push('/companies');
     } else {
         setFormErrors(res.errors);
     }

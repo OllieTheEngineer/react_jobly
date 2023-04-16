@@ -1,16 +1,14 @@
 import './App.css';
-import CompaniesList from './companies/CompaniesList';
-import JobList from './Jobs/JobList';
 import { BrowserRouter } from 'react-router-dom';
-import Routes from './routes/Routes';
-import NavBar from './routes/nav/NavBar';
+import Routing from './routes/nav/Routing';
+// import NavBar from './routes/nav/NavBar';
 
 function App() {
   return (
     <div className="App">
       <BrowserRouter>
-      <NavBar/>
-      <Routes/>
+      {/* <NavBar/> */}
+      <Routing/>
       </BrowserRouter>
     {/* <CompaniesList/>
     <JobList/> */}

@@ -1,10 +1,10 @@
-import React from 'react';
+import React, {useEffect, useState} from 'react';
 import { useParams } from "react-router-dom";
 import JoblyApi from '../api';
-
+import JobCardInfo from '../Jobs/JobCardInfo';
 //  Page for comany details
 
-function Company() {
+function CompanyCardInfo() {
     const { handle } = useParams();
     console.debug("DetailOfCompany", "handle=", handle);
 
@@ -26,4 +26,4 @@ function Company() {
   )
 }
 
-export default Company;
+export default CompanyCardInfo;
