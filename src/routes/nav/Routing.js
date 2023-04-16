@@ -33,22 +33,34 @@ function Routing({login, signup}) {
            element={<LoginForm login={login}/>} >
     </Route>
 
-    <PrivateRoute exact path="/companies" 
-                  element={<CompaniesList />} >
-    </PrivateRoute>
+    <Route exact path="/companies" render={() => (
+      <PrivateRoute>
+        <CompaniesList />
+        </PrivateRoute>
+    )} />
+    
 
-    <PrivateRoute exact path="/jobs" 
-                  element={<JobList />} >
-    </PrivateRoute>
+    <Route exact path="/jobs"  render={() => (
+      <PrivateRoute>
+      <JobList />
+      </PrivateRoute>
+    )} />
 
-    <PrivateRoute exact path="/companies/:handle"
-                  element={<CompanyCardInfo />}>
-    </PrivateRoute>
-
-    <PrivateRoute exact path="/profile" 
-                  element={<Profile />}>
-    </PrivateRoute>
-    <Navigate to="/" />
+    <Route exact path="/companies/:handle" render={() => (
+      <PrivateRoute>
+      <CompanyCardInfo />
+      </PrivateRoute>
+    )} />
+    
+    <Route exact path="/profile" render={() => (
+      <PrivateRoute>
+      <Profile />
+      </PrivateRoute>
+    )} />
+    <Route exact path="/" render={() => (
+      <Navigate to="/" />
+    )} />
+    
    </Routes>
    </div>
   );
