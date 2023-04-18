@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { useNavigate } from "react-router-dom";
 import Alert from '../Alert';
+import api from '../api'
 
 //  Sign up form for users to create an account so that they can log in and utilize the app
 
@@ -21,11 +22,14 @@ const [formErrors, setFormErrors ] = useState([]);
 
 async function handleSignUp(e) {
     e.preventDefault();
-    let res = await SignupForm(formData);
-    if(res.sucess) {
+    console.log("Sign up here!")
+    console.log(formData)
+    let res;
+    try {
+        res = await api.signup(formData);
         navigate.push('/companies');
-    } else {
-        setFormErrors(res.errors);
+    } catch(error) {
+        setFormErrors(res.errors)
     }
 };
 
@@ -39,7 +43,7 @@ async function handleSignUp(e) {
 
 
   return (
-    <form onSubmit={handleSignUp}>
+    <form>
       <div>
         <label> First Name: </label>
         <input
@@ -85,10 +89,10 @@ async function handleSignUp(e) {
             onChange={handleChange}
         />
       </div>
-      {formErrors.length? <Alert type="danger" messages={formErrors} />
+      {formErrors && formErrors.length? <Alert type="danger" messages={formErrors} />
       : null
       }
-        <button onSubmit={handleSignUp}type='submit'> Sign Up</button>
+        <button onClick={handleSignUp}> Sign Up</button>
     </form>
   )
 }

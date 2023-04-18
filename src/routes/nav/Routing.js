@@ -32,12 +32,16 @@ function Routing({login, signup}) {
     <Route exact path="/login" 
            element={<LoginForm login={login}/>} >
     </Route>
+    
+    <Route exact path="/companies" 
+           element={<CompaniesList/>} >
+    </Route>
 
-    <Route exact path="/companies" render={() => (
+    {/* <Route exact path="/companies" render={() => (
       <PrivateRoute>
         <CompaniesList />
         </PrivateRoute>
-    )} />
+    )} /> */}
     
 
     <Route exact path="/jobs"  render={() => (
@@ -60,7 +64,6 @@ function Routing({login, signup}) {
     <Route exact path="/" render={() => (
       <Navigate to="/" />
     )} />
-    
    </Routes>
    </div>
   );
