@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom';
 import UserContext from '../auth_forms/UserContext';
 
 function Homepage() {
-  const { currUser } = useContext(UserContext);
+  const { username } = useContext(UserContext);
   const [ showLogin, setShowLogin ] = useState(false);
 
   const handleLoginClick = () => {
@@ -18,9 +18,9 @@ function Homepage() {
     <div className="Homepage">
       <h1> Jobly </h1>
       <p> Your dream job is just one click away! </p>
-      {currUser ? 
+      {username ? 
         <h2>
-          Welcome, { currUser.userName }!
+          Welcome, { username }!
         </h2>
        : (
         <p>

@@ -1,18 +1,24 @@
-import './App.css';
-import { BrowserRouter } from 'react-router-dom';
-import Routing from './routes/nav/Routing';
+import "./App.css";
+import { useState } from "react";
+import { BrowserRouter } from "react-router-dom";
+import Routing from "./routes/nav/Routing";
+import UserContext from "./auth_forms/UserContext";
+
 // import NavBar from './routes/nav/NavBar';
 
 function App() {
+  const localStorageToken = localStorage.getItem("session");
+  const localStorageUsername = localStorage.getItem("username");
+  const [token, setToken] = useState(localStorageToken);
+  const [username, setUserName] = useState(localStorageUsername);
   return (
-    <div className="App">
-      <BrowserRouter>
-      {/* <NavBar/> */}
-      <Routing/>
-      </BrowserRouter>
-    {/* <CompaniesList/>
-    <JobList/> */}
-    </div>
+    <UserContext.Provider value={{ token, setToken, username, setUserName }}>
+      <div className="App">
+        <BrowserRouter>
+          <Routing />
+        </BrowserRouter>
+      </div>
+    </UserContext.Provider>
   );
 }
 

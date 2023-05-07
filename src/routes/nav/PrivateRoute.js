@@ -1,29 +1,23 @@
-import React, { useContext } from 'react';
-import { Route, Navigate } from "react-router-dom";
-import UserContext from '../../auth_forms/UserContext';
+import React, { useContext } from "react";
+import { Navigate } from "react-router-dom";
+import UserContext from "../../auth_forms/UserContext";
 
-
-
-function PrivateRoute({ children, ...rest }) {
-    const { currUser } = useContext(UserContext);
+function PrivateRoute({ children }) {
+  const { token } = useContext(UserContext);
 
   return (
-    <Route
-    {...rest}
-    render={({location}) =>
-        currUser ? (
-            children
-        ) : (
-            <Navigate
-            to={{
-                pathname: "/login",
-                state: {from: location}
-            }}
-            />
-         )
-      }
-    />
-  )
+    <div>
+      {token ? (
+        children
+      ) : (
+        <Navigate
+          to={{
+            pathname: "/login"
+          }}
+        />
+      )}
+    </div>
+  );
 }
 
 export default PrivateRoute;

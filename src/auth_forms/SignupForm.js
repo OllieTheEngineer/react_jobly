@@ -1,12 +1,16 @@
-import React, { useState } from 'react';
+import React, { useState, useContext } from 'react';
 import { useNavigate } from "react-router-dom";
 import Alert from '../Alert';
-import api from '../api'
+import api from '../api';
+import UserContext from '../auth_forms/UserContext';
+
 
 //  Sign up form for users to create an account so that they can log in and utilize the app
 
 const SignupForm = () => {
   const navigate = useNavigate();
+  const { setToken, setUserName } = useContext(UserContext);
+
 
   const [ formData, setFormData ] = useState({
     firstName: "",
@@ -23,11 +27,16 @@ const [formErrors, setFormErrors ] = useState([]);
 async function handleSignUp(e) {
     e.preventDefault();
     console.log("Sign up here!")
-    console.log(formData)
     let res;
     try {
         res = await api.signup(formData);
-        navigate.push('/companies');
+        
+        // Set res JWT token within local storage
+        localStorage.setItem("session", res);
+        localStorage.setItem("username", formData.username);
+        setToken(res);
+        setUserName(formData.username);
+        navigate('/companies');
     } catch(error) {
         setFormErrors(res.errors)
     }
