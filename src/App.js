@@ -2,6 +2,8 @@ import "./App.css";
 import { useState } from "react";
 import { BrowserRouter } from "react-router-dom";
 import Routing from "./routes/nav/Routing";
+import NavBar from "./routes/nav/NavBar";
+
 import UserContext from "./auth_forms/UserContext";
 
 // import NavBar from './routes/nav/NavBar';
@@ -15,6 +17,7 @@ function App() {
     <UserContext.Provider value={{ token, setToken, username, setUserName }}>
       <div className="App">
         <BrowserRouter>
+          <NavBar />
           <Routing />
         </BrowserRouter>
       </div>

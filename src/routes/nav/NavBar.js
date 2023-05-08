@@ -1,25 +1,24 @@
 import React from 'react';
-// import { NavLink } from "react-router-dom";
+import { NavLink } from "react-router-dom";
 
 function NavBar() {
   return (
     <div>
-        <a href='/'> Homepage </a>
-    {/* <NavLink to="/" >
+    <NavLink to="/" >
         HomePage
-    </NavLink> */}
+    </NavLink>
     <br></br>
-    <a href="/signUp" >
-      Signup
-    </a>
+    <NavLink to="/signup" >
+        SignUp
+    </NavLink>
     <br></br>
-    <a href="/login" >
-      Login
-    </a>
+    <NavLink to="/login" >
+        Login
+    </NavLink>
     <br></br>
-    <a href="/companies" >
-      Companies
-    </a>
+    <NavLink to="/companies" >
+        View Companies
+    </NavLink>
     <br></br>
     <a href="/jobs" >
       Jobs

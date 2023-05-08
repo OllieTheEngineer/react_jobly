@@ -6,11 +6,11 @@ import UserContext from '../auth_forms/UserContext';
 function JobCardInfo({id, title, salary, equity, companyName}) {
 
     const { hasAppliedToJob, applyToJob } = useContext(UserContext);
-    const [ applied, setApplied] = useState();
+    const [ applied, setApplied] = useState("");
 
-    React.useEffect(function updateAppliedToJobStatus() {
-        setApplied(hasAppliedToJob(id));
-    }, [id, hasAppliedToJob]);
+    // React.useEffect(function updateAppliedToJobStatus() {
+    //     setApplied(hasAppliedToJob(id));
+    // }, [id, hasAppliedToJob]);
 
     async function handleApply(evt) {
         if (hasAppliedToJob(id)) 

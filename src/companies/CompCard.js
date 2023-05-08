@@ -12,8 +12,6 @@ import { Link } from "react-router-dom";
     <div>
         <h6>
             {name}
-            {logoUrl && <img src={logoUrl}
-                             alt={name}/>}
         </h6>
         <p>{description}</p>
     </div>
