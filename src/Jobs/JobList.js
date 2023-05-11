@@ -23,8 +23,20 @@ console.log(jobs)
     <div>
       <SearchForm searchingFor={search} />
       {jobs.length
-      ? <JobCardInfo job={jobs}/>
-      : <p> No Results have been found</p> 
+     ? (
+      <div>
+       {jobs.map(job => (
+          <JobCardInfo
+              key={job.handle}
+              handle={job.handle}
+              name={job.companyName}
+              title={job.title}
+              salary={job.salary}
+              equity={job.equity}
+              /> 
+      ))}
+      </div>
+     ): <p> No Results have been found</p> 
       }
     </div>
   )
