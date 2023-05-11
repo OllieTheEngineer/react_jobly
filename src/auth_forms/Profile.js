@@ -1,4 +1,6 @@
-import React, {useState} from 'react'
+import React, {useState} from 'react';
+import api from '../api';
+// import UserContext from '../auth_forms/UserContext';
 
 function Profile() {
   const InitialState = {
@@ -9,10 +11,30 @@ function Profile() {
   };
 
   const [ formData, setFormData ] = useState(InitialState);
+  const [ formErrors, setFormErrors] = useState(null)
 
-  const handleSubmit = (evt) => {
+  async function handleSubmit(evt){
     evt.preventDefault();
 
+    let profileInfo = {
+      firstName: formData.firstName,
+      lastName: formData.lastName,
+      email: formData.email
+    }
+    let username = formData.username;
+    let updateUser;
+    try {
+      updateUser = await api.saveProfile(username, profileInfo);
+
+      // Set res JWT token within local storage
+      localStorage.setItem("session", updateUser);
+      localStorage.setItem("username", formData.username,
+                            "first_name", formData.firstName,
+                            "last_name", formData.lastName,
+                            "email", formData.email);
+    } catch (errors) {
+      setFormErrors(updateUser.errors);
+    }
   }
 
   const handleChange = (evt) => {
