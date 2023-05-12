@@ -18,7 +18,8 @@ class JoblyApi {
     console.debug("API Call:", endpoint, data, method);
 
     const url = `${BASE_URL}/${endpoint}`;
-    const headers = { Authorization: `Bearer ${JoblyApi.token}` };
+    const token = localStorage.getItem("session") || "";
+    const headers = { Authorization: `Bearer ${token}` };
     const params = (method === "get")
         ? data
         : {};
