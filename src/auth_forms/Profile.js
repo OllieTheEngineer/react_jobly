@@ -18,6 +18,7 @@ function Profile() {
     evt.preventDefault();
 
     let profileInfo = {
+      username: formData.username,
       firstName: formData.firstName,
       lastName: formData.lastName,
       email: formData.email,
@@ -45,8 +46,19 @@ function Profile() {
   return (
     <div>
       <form onSubmit={handleSubmit}>
+      <div>
+          <label> Username: </label>
+          <input
+            name="username"
+            className="form-control"
+            value={formData.username}
+            onChange={handleChange}
+            autoComplete="username"
+            required
+          />
+        </div>
         <div>
-          <label>First Name</label>
+          <label>First Name: </label>
           <input
             name="firstName"
             className="form-control"
@@ -57,7 +69,7 @@ function Profile() {
           />
         </div>
         <div>
-          <label>Last Name</label>
+          <label>Last Name: </label>
           <input
             name="lastName"
             className="form-control"
@@ -68,7 +80,7 @@ function Profile() {
           />
         </div>
         <div className="form-group">
-          <label>Email</label>
+          <label>Email: </label>
           <input
             type="text"
             name="email"
@@ -86,6 +98,7 @@ function Profile() {
         {registeredData ? 
         <div>
           <p>Your data was saved successfully</p>
+          <p>Username: {registeredData.username}</p>
           <p>First Name: {registeredData.firstName}</p>
           <p>Last Name: {registeredData.lastName}</p>
           <p>Email: {registeredData.email}</p>

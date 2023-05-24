@@ -13,11 +13,16 @@ function App() {
   const localStorageUsername = localStorage.getItem("username");
   const [token, setToken] = useState(localStorageToken);
   const [username, setUserName] = useState(localStorageUsername);
+
+  function logout() {
+    setUserName(null);
+    setToken(null);
+  }
   return (
     <UserContext.Provider value={{ token, setToken, username, setUserName }}>
       <div className="App">
         <BrowserRouter>
-          <NavBar />
+          <NavBar  logout={logout}/>
           <Routing />
         </BrowserRouter>
       </div>

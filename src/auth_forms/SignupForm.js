@@ -53,55 +53,80 @@ async function handleSignUp(e) {
 
   return (
     <form>
-      <div>
-        <label> First Name: </label>
+      <h2>Please fill out the following form</h2>
+      <div class="container my-3">
+      <div class="row justify-content-center">
+      <div class="col-md-6 col-lg-3 border shadow-light rounded p-4">
+      <div class="form-group">
+        <label for="email"> First Name: </label>
         <input
+            id="email"
+            class="form-control"
             type="text"
             name="firstName"
+            placeholder='Enter first name'
             value={formData.firstName}
             onChange={handleChange}
         />
       </div>
-      <div>
-        <label> Last Name: </label>
+      <div class="form-group">
+        <label for="last-name"> Last Name: </label>
         <input
+            id="last-name"
+            class="form-control"
             type="text"
             name="lastName"
+            placeholder='Enter last name'
             value={formData.lastName}
             onChange={handleChange}
         />
       </div>
-      <div>
-        <label> Username: </label>
+      <div class="form-group">
+        <label for="username"> Username: </label>
         <input
+            id="username"
+            class="form-control"
             type="text"
             name="username"
+            placeholder='Enter username'
             value={formData.username}
             onChange={handleChange}
         />
       </div>
-      <div>
-        <label> Email: </label>
+      <div class="form-group">
+        <label for="email"> Email: </label>
         <input
+            id="email"
+            class="form-control"
             type="text"
             name="email"
+            placeholder='Enter email'
             value={formData.email}
             onChange={handleChange}
         />
       </div>
-      <div>
-        <label> Password: </label>
+      <div class="form-group">
+        <label for="password"> Password: </label>
         <input
+            id="password"
+            class="form-control"
             type="text"
             name="password"
+            placeholder='Password'
             value={formData.password}
             onChange={handleChange}
         />
       </div>
+      
       {formErrors && formErrors.length? <Alert type="danger" messages={formErrors} />
       : null
       }
-        <button onClick={handleSignUp}> Sign Up</button>
+      <div class="d-grid gap-2 d-md-block my-3">
+        <button class="btn btn-success" type="button" onClick={handleSignUp}> Sign Up</button>
+      </div>
+      </div>
+      </div>
+      </div>
     </form>
   )
 }

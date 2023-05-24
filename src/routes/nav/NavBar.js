@@ -1,9 +1,13 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import { NavLink } from "react-router-dom";
+import UserContext from '../../auth_forms/UserContext';
 
-function NavBar() {
+function NavBar({logout}) {
+const { currentUser } = useContext(UserContext)
   return (
-    <div>
+    <nav class="navbar navbar-expand-lg bg-body-tertiary bg-light">
+    <div class="container-fluid">
+      <div class="navbar-brand text-primary">Jobly</div>
     <NavLink to="/" >
         HomePage
     </NavLink>
@@ -17,17 +21,22 @@ function NavBar() {
     </NavLink>
     <br></br>
     <NavLink to="/companies" >
-        View Companies
+        Companies
     </NavLink>
     <br></br>
-    <a href="/jobs" >
+    <NavLink to="/jobs" >
       Jobs
-    </a>
+    </NavLink>
     <br></br>
-    <a href="/profile" >
+    <NavLink to="/profile" >
       Profile
-    </a>
+    </NavLink>
+    <br></br>
+    <NavLink to="/" onClick={logout}>
+        log out {currentUser}
+    </NavLink>
   </div>
+  </nav>
   )
 }
 
