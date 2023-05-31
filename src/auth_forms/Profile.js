@@ -45,9 +45,13 @@ function Profile() {
 
   return (
     <div>
+      <h2 className="my-4"> Please update your profile </h2>
       <form onSubmit={handleSubmit}>
-      <div>
-          <label> Username: </label>
+      <div className="container my-4">
+      <div className="row justify-content-center">
+      <div className="col-md-6 col-lg-3 border shadow-light rounded p-4">
+      {/* <div className="form-group">
+          <label htmlFor="username"> Username: </label>
           <input
             name="username"
             className="form-control"
@@ -56,9 +60,9 @@ function Profile() {
             autoComplete="username"
             required
           />
-        </div>
-        <div>
-          <label>First Name: </label>
+        </div> */}
+        <div className="form-group">
+          <label htmlFor="firstName">First Name: </label>
           <input
             name="firstName"
             className="form-control"
@@ -68,8 +72,8 @@ function Profile() {
             required
           />
         </div>
-        <div>
-          <label>Last Name: </label>
+        <div className="form-group">
+          <label htmlFor="lastName">Last Name: </label>
           <input
             name="lastName"
             className="form-control"
@@ -80,7 +84,7 @@ function Profile() {
           />
         </div>
         <div className="form-group">
-          <label>Email: </label>
+          <label htmlFor="Email">Email: </label>
           <input
             type="text"
             name="email"
@@ -91,14 +95,19 @@ function Profile() {
             required
           />
         </div>
-        <button>Save Changes </button>
+        <div className="d-grid gap-2 d-md-block my-4">
+        <button className="btn btn-primary">Save Changes </button>
+        </div>
+        </div>
+        </div>
+        </div>
       </form>
 
       <div>
         {registeredData ? 
         <div>
           <p>Your data was saved successfully</p>
-          <p>Username: {registeredData.username}</p>
+          {/* <p>Username: {registeredData.username}</p> */}
           <p>First Name: {registeredData.firstName}</p>
           <p>Last Name: {registeredData.lastName}</p>
           <p>Email: {registeredData.email}</p>

@@ -54,14 +54,14 @@ async function handleSignUp(e) {
   return (
     <form>
       <h2>Please fill out the following form</h2>
-      <div class="container my-3">
-      <div class="row justify-content-center">
-      <div class="col-md-6 col-lg-3 border shadow-light rounded p-4">
-      <div class="form-group">
+      <div className="container my-3">
+      <div className="row justify-content-center">
+      <div className="col-md-6 col-lg-3 border shadow-light rounded p-4">
+      <div className="form-group">
         <label for="email"> First Name: </label>
         <input
             id="email"
-            class="form-control"
+            className="form-control"
             type="text"
             name="firstName"
             placeholder='Enter first name'
@@ -69,11 +69,11 @@ async function handleSignUp(e) {
             onChange={handleChange}
         />
       </div>
-      <div class="form-group">
+      <div className="form-group">
         <label for="last-name"> Last Name: </label>
         <input
             id="last-name"
-            class="form-control"
+            className="form-control"
             type="text"
             name="lastName"
             placeholder='Enter last name'
@@ -81,11 +81,11 @@ async function handleSignUp(e) {
             onChange={handleChange}
         />
       </div>
-      <div class="form-group">
+      <div className="form-group">
         <label for="username"> Username: </label>
         <input
             id="username"
-            class="form-control"
+            className="form-control"
             type="text"
             name="username"
             placeholder='Enter username'
@@ -93,11 +93,11 @@ async function handleSignUp(e) {
             onChange={handleChange}
         />
       </div>
-      <div class="form-group">
+      <div className="form-group">
         <label for="email"> Email: </label>
         <input
             id="email"
-            class="form-control"
+            className="form-control"
             type="text"
             name="email"
             placeholder='Enter email'
@@ -105,11 +105,11 @@ async function handleSignUp(e) {
             onChange={handleChange}
         />
       </div>
-      <div class="form-group">
+      <div className="form-group">
         <label for="password"> Password: </label>
         <input
             id="password"
-            class="form-control"
+            className="form-control"
             type="text"
             name="password"
             placeholder='Password'
@@ -121,8 +121,8 @@ async function handleSignUp(e) {
       {formErrors && formErrors.length? <Alert type="danger" messages={formErrors} />
       : null
       }
-      <div class="d-grid gap-2 d-md-block my-3">
-        <button class="btn btn-success" type="button" onClick={handleSignUp}> Sign Up</button>
+      <div className="d-grid gap-2 d-md-block my-3">
+        <button className="btn btn-success" type="button" onClick={handleSignUp}> Sign Up</button>
       </div>
       </div>
       </div>

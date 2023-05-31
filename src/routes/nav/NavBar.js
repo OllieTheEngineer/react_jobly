@@ -5,9 +5,9 @@ import UserContext from '../../auth_forms/UserContext';
 function NavBar({logout}) {
 const { currentUser } = useContext(UserContext)
   return (
-    <nav class="navbar navbar-expand-lg bg-body-tertiary bg-light">
-    <div class="container-fluid">
-      <div class="navbar-brand text-primary">Jobly</div>
+    <nav className="navbar navbar-expand-lg bg-body-tertiary bg-light">
+    <div className="container-fluid">
+      <div className="navbar-brand text-primary">Jobly</div>
     <NavLink to="/" >
         HomePage
     </NavLink>
