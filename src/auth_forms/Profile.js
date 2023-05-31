@@ -18,7 +18,7 @@ function Profile() {
     evt.preventDefault();
 
     let profileInfo = {
-      username: formData.username,
+      // username: formData.username,
       firstName: formData.firstName,
       lastName: formData.lastName,
       email: formData.email,
